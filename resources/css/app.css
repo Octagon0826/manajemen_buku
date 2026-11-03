@@ -1,0 +1,470 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======================================
+   GLOBAL
+====================================== */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --sidebar: #172554;
+    --sidebar-hover: #263b70;
+    --page: #f1f5f9;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: 'Figtree', sans-serif;
+    background: var(--page);
+    color: var(--text);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ======================================
+   APP LAYOUT
+====================================== */
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+}
+
+.app-sidebar {
+    width: 255px;
+    min-height: 100vh;
+    background: var(--sidebar);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+}
+
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 27px 22px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.app-brand-icon {
+    width: 42px;
+    height: 42px;
+    background: #2563eb;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 19px;
+}
+
+.app-brand-name {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.app-brand-subtitle {
+    color: #a5b4fc;
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.sidebar-section {
+    padding: 25px 15px 8px;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.sidebar-menu {
+    padding: 0 12px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    margin-bottom: 5px;
+    color: #cbd5e1;
+    text-decoration: none;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.sidebar-link:hover {
+    background: var(--sidebar-hover);
+    color: white;
+}
+
+.sidebar-link.active {
+    background: var(--primary);
+    color: white;
+}
+
+.sidebar-link-icon {
+    width: 22px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 17px;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.sidebar-user {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+}
+
+.sidebar-role {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 4px 9px;
+    background: rgba(255,255,255,.12);
+    color: #bfdbfe;
+    border-radius: 20px;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.sidebar-logout {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sidebar-logout:hover {
+    background: #991b1b;
+    border-color: #991b1b;
+}
+
+/* ======================================
+   MAIN CONTENT
+====================================== */
+
+.app-main {
+    width: calc(100% - 255px);
+    min-height: 100vh;
+    margin-left: 255px;
+}
+
+.app-topbar {
+    height: 76px;
+    padding: 0 35px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-topbar-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.app-topbar-subtitle {
+    margin-top: 3px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.app-content {
+    padding: 32px 35px;
+    max-width: 1500px;
+    margin: auto;
+}
+
+/* ======================================
+   GENERAL COMPONENTS
+====================================== */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.page-title {
+    font-size: 25px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.page-description {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.app-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(15,23,42,.03);
+}
+
+.app-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 17px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.app-btn-primary {
+    background: var(--primary);
+    color: white !important;
+}
+
+.app-btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.app-btn-secondary {
+    background: #e2e8f0;
+    color: #334155 !important;
+}
+
+.app-btn-secondary:hover {
+    background: #cbd5e1;
+}
+
+.app-btn-danger {
+    background: #dc2626;
+    color: white !important;
+}
+
+.app-btn-danger:hover {
+    background: #b91c1c;
+}
+
+.app-alert-success {
+    padding: 14px 17px;
+    margin-bottom: 20px;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    border-radius: 9px;
+    font-size: 13px;
+}
+
+.app-alert-error {
+    padding: 14px 17px;
+    margin-bottom: 20px;
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+    font-size: 13px;
+}
+
+/* ======================================
+   FORM
+====================================== */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: #1e293b;
+    font-size: 14px;
+    outline: none;
+    transition: .2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+.form-error {
+    margin-top: 5px;
+    color: #dc2626;
+    font-size: 12px;
+}
+
+/* ======================================
+   TABLE
+====================================== */
+
+.app-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.app-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.app-table th {
+    padding: 14px;
+    background: #f8fafc;
+    color: #475569;
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.app-table td {
+    padding: 15px 14px;
+    border-bottom: 1px solid var(--border);
+    color: #334155;
+}
+
+.app-table tr:hover td {
+    background: #f8fafc;
+}
+
+.app-action-link {
+    font-weight: 700;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.app-action-link:hover {
+    text-decoration: underline;
+}
+
+/* ======================================
+   PAGINATION
+====================================== */
+
+nav[role="navigation"] {
+    margin-top: 20px;
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media (max-width: 900px) {
+    .app-sidebar {
+        width: 210px;
+    }
+
+    .app-main {
+        width: calc(100% - 210px);
+        margin-left: 210px;
+    }
+
+    .app-content {
+        padding: 24px 18px;
+    }
+
+    .app-topbar {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .app-shell {
+        display: block;
+    }
+
+    .app-sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .app-brand {
+        padding: 15px 20px;
+    }
+
+    .sidebar-section {
+        padding-top: 12px;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .sidebar-link {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .app-main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .app-topbar {
+        height: 65px;
+    }
+
+    .app-content {
+        padding: 20px 14px;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .app-card {
+        padding: 16px;
+    }
+}
